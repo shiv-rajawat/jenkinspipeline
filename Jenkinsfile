@@ -15,8 +15,8 @@ pipeline {
     
     stage("Init"){
       steps {
-        sh 'terraform init'
-        sh 'terraform apply -input=false -auto-approve'
+        call 'terraform init'
+        call 'terraform apply -input=false -auto-approve'
       }
     }
     }
