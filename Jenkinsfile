@@ -15,7 +15,7 @@ pipeline {
     
     stage("Init"){
       steps {
-        bat 'start cmd.exe /c terraform init -input=false'
+        start cmd \k "terraform init"
         call 'terraform apply -input=false -auto-approve'
       }
     }
