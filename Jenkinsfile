@@ -15,7 +15,7 @@ pipeline {
     
     stage("Init"){
       steps {
-        start cmd \k "terraform init"
+        terraform init
         call 'terraform apply -input=false -auto-approve'
       }
     }
