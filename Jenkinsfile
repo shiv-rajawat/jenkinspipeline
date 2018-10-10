@@ -5,16 +5,17 @@ pipeline {
       AWS_SECRET_ACCESS_KEY = credentials('secret-key')
   }
   stages {
-    stage('Checkout') {
-        steps {
-          checkout scm
-          sh 'mkdir -p creds'
-          sh 'echo $AWS_ACCESS_KEY_ID | base64 -d > ./creds/accesskey.json'
-          sh 'echo $AWS_SECRET_ACCESS_KEY | base64 -d > ./creds/secretkey.json'
-        }
+  
+  stage('Checkout') {
+      steps {
+        checkout scm
+        
       }
+    }
+    
     stage("Init"){
       steps {
+        echo ${pwd}
         sh 'terraform init'
         sh 'terraform apply -input=false -auto-approve'
       }
