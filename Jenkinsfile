@@ -15,7 +15,6 @@ pipeline {
     
     stage("Init"){
       steps {
-        echo ${pwd}
         sh 'terraform init'
         sh 'terraform apply -input=false -auto-approve'
       }
