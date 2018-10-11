@@ -13,6 +13,7 @@ pipeline {
     stage("Init"){
       steps {
          echo "${env.AWS_ACCESS_KEY_ID}"
+          echo "${env.AWS_SECRET_ACCESS_KEY}"
         
         bat 'terraform init -var access_key=${env.AWS_ACCESS_KEY_ID} -var secret_key=${env.AWS_SECRET_ACCESS_KEY}'
         bat 'terraform apply -var access_key=${env.AWS_ACCESS_KEY_ID} -var secret_key=${env.AWS_SECRET_ACCESS_KEY} -input=false -auto-approve'
