@@ -31,7 +31,7 @@ pipeline {
     stage("Build"){
         steps {
           echo "Applying the terraform configuration."
-          sh "terraform apply /var/lib/jenkins/terraform.txt -var access_key='${AWS_ACCESS_KEY_ID}' -var secret_key='${AWS_SECRET_ACCESS_KEY}'  -auto-approve"
+          sh "terraform apply '/var/lib/jenkins/terraform.txt' -var access_key='${AWS_ACCESS_KEY_ID}' -var secret_key='${AWS_SECRET_ACCESS_KEY}'  -auto-approve"
         }
     }
       
